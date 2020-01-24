@@ -1,10 +1,27 @@
-﻿@page
+﻿@page  
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div id="hero" class="hero carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        @foreach (var voyage in Model.VoyageList)
+        {
+            <div class="carousel-item active">
+                <img src="@voyage.Destination.ImageUrl" 
+                     class="d-block w-100" 
+                     alt="@voyage.Destination.ImageUrl">
+            </div>
+        }
+
+    </div>
+    <a class="carousel-control-prev" href="#hero" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#hero" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
